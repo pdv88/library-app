@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    background-color: rgb(66, 113, 175);
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+button#submit {
+    background-color: rgb(80, 139, 80);
+}
+
+button#cancel {
+    background-color: rgb(207, 83, 83);
+}
+
+.popup_container {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(206, 229, 248, 0.404);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+.popup {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.pop {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+label {
+    display: block;
+}
+
+input {
+    border: 0;
+    padding: .5rem 1rem;
+    outline: none;
+    border-radius: 1rem;
+    background-color: rgb(219, 218, 218);
+    
+}
+
+form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form_btns {
+    display: grid;
+    gap: 1rem;
+}

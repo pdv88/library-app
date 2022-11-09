@@ -6,9 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="script" href="script.js" defer>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <button id="add">Add New Book</button>
+
+    <div id="popup_container" class="popup_container">
+        <div class="popup">
+            <h1>Enter book Info</h1>
+            <form action="">
+                <div>
+                    <label for="name">Name of Book</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div>
+                    <label for="name">Number of Pages</label>
+                    <input type="number" name="pages" required>
+                </div>
+                <div>
+                    <label for="name">Did you read it?</label>
+                    <input type="checkbox" name="isRead">
+                </div>
+                <div class="form_btns">
+                    <button id="submit" type="submit">Add Book</button>
+                    <button id="cancel" type="reset">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
