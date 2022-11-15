@@ -9,23 +9,37 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button id="add">Add New Book</button>
+    <header>
+        <div class="logo">
+            <img height="50px" src="/assets/logo.png" alt="">
+        </div>
+        <div class="user">
+            <img height="50px" src="/assets/user.png" alt="profile_pic">
+            <h2>PabloD</h2>
+        </div>
+    </header>
+    
+    <div id="library">
+        <h1>Your Books</h1>
+    </div>
+    
+    <button id="add"> + Add New Book</button>
 
     <div id="popup_container" class="popup_container">
         <div class="popup">
             <h1>Enter book Info</h1>
-            <form action="">
+            <form id="add_book_form" action="">
                 <div>
-                    <label for="name">Name of Book</label>
-                    <input type="text" name="name" required>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" required>
                 </div>
                 <div>
                     <label for="name">Number of Pages</label>
-                    <input type="number" name="pages" required>
-                </div>
-                <div>
-                    <label for="name">Did you read it?</label>
-                    <input type="checkbox" name="isRead">
+                    <input type="number" name="pages" id="pages" required>
                 </div>
                 <div class="form_btns">
                     <button id="submit" type="submit">Add Book</button>

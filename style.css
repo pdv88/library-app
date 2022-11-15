@@ -6,22 +6,70 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body {
+html {
+    width: 100vw;
+}
+
+
+/* ------header------ */
+
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0px 0px 10px rgb(77, 76, 76);
+    padding: 1rem 3rem;
+    background-color: rgb(207, 207, 207);
+    position: sticky;
+}
+
+.logo {
+    height: 50px;
+    justify-items: left;
+    align-items: center;
+}
+
+.user {
     display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 1rem;
+}
+
+
+/* ------body------ */
+
+
+
+body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% auto 10%;
+    background-color: rgb(255, 255, 255);
     height: 100vh;
     width: 100vw;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 button {
+    display: grid;
+    margin: auto;
     border: 0;
     padding: 1rem 2rem;
-    border-radius: 1.5rem;
-    background-color: rgb(66, 113, 175);
+    border-radius: 1.7rem;
+    background-color: rgb(74, 75, 75);
     color: whitesmoke;
     font-weight: bold;
     font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+button:hover {
+    box-shadow: 0px 0px 10px gray;
+    transform: translateY(-5px);
+    transition: 0.2s;
 }
 
 button#submit {
@@ -31,6 +79,8 @@ button#submit {
 button#cancel {
     background-color: rgb(207, 83, 83);
 }
+
+/* ------add book form------ */
 
 .popup_container {
     display: flex;
@@ -42,6 +92,7 @@ button#cancel {
     position: fixed;
     height: 100vh;
     width: 100vw;
+    transition: 0.5s ease-out;
 }
 
 .popup {
@@ -56,6 +107,7 @@ button#cancel {
 .pop {
     opacity: 1;
     pointer-events: auto;
+    transition: 0.5s ease-out;
 }
 
 label {
@@ -67,8 +119,7 @@ input {
     padding: .5rem 1rem;
     outline: none;
     border-radius: 1rem;
-    background-color: rgb(219, 218, 218);
-    
+    background-color: rgb(219, 218, 218);  
 }
 
 form {
@@ -79,4 +130,44 @@ form {
 .form_btns {
     display: grid;
     gap: 1rem;
+}
+
+/* ------library and cards------ */
+
+#library {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(230px, 1fr) );
+    gap: 1rem;
+    padding: 2rem;
+    
+}
+
+#library h1 {
+    grid-column: 1/-1;
+}
+
+.card {
+    display: grid;
+    gap: 1rem;
+    background-color: rgb(235, 235, 235);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: 0.2s ease-in;
+    border-left: .5rem solid gray;
+}
+
+.isRead {
+    border-left-color: rgb(93, 184, 93);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.2s ease-in;
+    box-shadow: 5px 5px 10px gray;
+}
+
+.remove_book_button {
+    background-color: transparent;
+    padding: 0;
+    color: black;
 }
