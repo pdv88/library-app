@@ -21,17 +21,39 @@ cancel.addEventListener("click", () => {
 // ------Book constructor------
 
 class Book {
-    constructor(title, author, pages) {
+    constructor(title, author, pages,isRead) {
         this.title = title
         this.author = author
         this.pages = pages
+        this.isRead = isRead
     }
 }
 
-// ------function to make book------
+// ------function to get input from form------
 
-function addBookToLibrary(title, author, pages) {
-  let book = new Book(title, author, pages)
+const submit = document.querySelector("#submit")
+submit.addEventListener("click", getInput)
+
+function getInput() {
+  let title = document.getElementById("title").value
+  let author = document.getElementById("author").value
+  let pages = document.getElementById("pages").value
+  let isRead = document.getElementById("isRead").checked
+
+  if((title == "") || (author == "") || (pages == "")){
+    return
+  }
+  
+  addBookToLibrary(title, author, pages, isRead)
+
+  popupContainer.classList.remove("pop")
+  document.getElementById("add_book_form").reset()
+}
+
+// ------function to make book object------
+
+function addBookToLibrary(title, author, pages, isRead) {
+  let book = new Book(title, author, pages, isRead)
   myLibrary.push(book)
   displayBooks()
 }
@@ -60,24 +82,29 @@ function displayBooks() {
     removeBookButton.dataset.linkedArray = index
     card.appendChild(removeBookButton)
 
-    // ------function to delete book------
+    // ------function to delete book card------
     function deleteBookCard(){
       let retreiveBookToRemove = removeBookButton.dataset.linkedArray
       myLibrary.splice(parseInt(retreiveBookToRemove), 1)
       card.remove()
       displayBooks()
     }
+    
+    // ------Function to toggle isRead status------
+    
+
+    
     // ------Create book card------
     const title = document.createElement("h2")
-    title.textContent = (item.title)
+    title.textContent = item.title
     card.appendChild(title)
         
     const author = document.createElement("p")
-    author.textContent = (`Author: ${item.author}`)
+    author.textContent = `Author: ${item.author}`
     card.appendChild(author)
     
     const pages = document.createElement("p")
-    pages.textContent = (`Pages: ${item.pages}`)
+    pages.textContent = `Pages: ${item.pages}`
     card.appendChild(pages)
     
     const inputText = document.createElement("p")
@@ -86,27 +113,17 @@ function displayBooks() {
     
     const isRead = document.createElement("input")
     isRead.setAttribute('type', 'checkbox')
+    if(item.isRead == true) {
+      isRead.setAttribute('checked', true)
+    } 
     card.appendChild(isRead)
     
     index++
   })
 
 }
-// ------function to get input from form------
 
-const submit = document.getElementById("submit")
-submit.addEventListener("click", getInput)
-
-function getInput() {
-  let title = document.getElementById("title").value
-  let author = document.getElementById("author").value
-  let pages = document.getElementById("pages").value
-
-  addBookToLibrary(title, author, pages)
-
-  document.getElementById("add_book_form").reset()
-
-  popupContainer.classList.remove("pop")
-
-}
+addBookToLibrary("Lord of the Rings", "Tolkien", "567", false)
+addBookToLibrary("Hobbit", "Tolkien", "123", true)
+addBookToLibrary("Atomic Habits", "Susan H", "232", false)
 
