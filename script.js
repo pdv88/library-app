@@ -106,12 +106,11 @@ function displayBooks() {
     card.appendChild(isRead)
     
 
-    // ------ toggle read status------
+    // ------function to toggle read status------
 
     isRead.addEventListener('click', toggleReadStatus) 
      function toggleReadStatus(){
-      
-     if (card.classList.contains('isReadTrue')) {
+      if (card.classList.contains('isReadTrue')) {
         card.classList.remove('isReadTrue')
         card.classList.add('isReadFalse')
         isRead.textContent = "No"
@@ -141,11 +140,8 @@ function displayBooks() {
       card.remove()
       displayBooks()
     }
-
     index++
   })
-
-  
 }
 
 addBookToLibrary("Lord of the Rings - The Fellowship of the Ring", "Tolkien", "567", false)
