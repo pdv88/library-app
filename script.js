@@ -105,6 +105,27 @@ function displayBooks() {
     }
     card.appendChild(isRead)
     
+
+    // ------ toggle read status------
+
+    isRead.addEventListener('click', toggleReadStatus) 
+     function toggleReadStatus(){
+      
+     if (card.classList.contains('isReadTrue')) {
+        card.classList.remove('isReadTrue')
+        card.classList.add('isReadFalse')
+        isRead.textContent = "No"
+        item.isRead = false;
+      } else if (card.classList.contains('isReadFalse')) {
+        card.classList.remove('isReadFalse')
+        card.classList.add('isReadTrue')
+        isRead.textContent = "Yes"
+        item.isRead = true;
+      }
+      displayBooks();
+    };
+
+
     // ------create delete button------
     const removeBookButton = document.createElement("button")
     removeBookButton.classList.add("remove_book_button")
@@ -126,23 +147,6 @@ function displayBooks() {
 
   
 }
-
-document.addEventListener('click', (event) => {
-  const { target } = event;
-  
-  if (target.parentNode.classList.contains('isReadTrue')) {
-    target.parentNode.classList.remove('isReadTrue');
-    target.parentNode.classList.add('isReadFalse');
-    target.textContent = "No"
-    myLibrary[tr].isRead = false;
-  } else if (target.parentNode.classList.contains('isReadFalse')) {
-    target.parentNode.classList.remove('isReadFalse');
-    target.parentNode.classList.add('isReadTrue');
-    target.textContent = "Yes"
-    myLibrary[tr].isRead = true;
-  }
-  displayBooks();
-});
 
 addBookToLibrary("Lord of the Rings - The Fellowship of the Ring", "Tolkien", "567", false)
 addBookToLibrary("The Hobbit", "Tolkien", "123", true)
